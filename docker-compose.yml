@@ -1,6 +1,7 @@
 version: '3'
 services:
-  web:
+  gradle:
+    image: gradle:alpine
     build: .
     ports:
-     - "5000:5000"
+     - "9000:9000"
