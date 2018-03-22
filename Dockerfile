@@ -1,8 +1,10 @@
-FROM gradle:alpine
+FROM openjdk:8-slim
 
-ADD --chown=gradle . /code
+ADD . /code
 WORKDIR /code
+
+ADD ./build/libs/docker-example-1.0.jar /code/server.jar
 
 EXPOSE 9000
 
-CMD ["gradle", "--stacktrace", "run"]
+CMD ["java", "-jar", "server.jar"]
